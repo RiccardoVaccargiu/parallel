@@ -1,5 +1,6 @@
 import { Box, Button, TextField } from '@material-ui/core'
 import React, {  useState } from 'react'
+import axios from 'axios';
 import { jobeditorStyle } from './Jobeditor.style'
 import {  sendJob } from '../../../../utils/webSocketFunctions';
 
@@ -21,12 +22,13 @@ function Jobeditor(){
     }
 
     const saveJob = () => {
-
         setJob({
             title,
             description,
         })
         sendJob("job", job)
+        
+        axios.get(`${process.env.REACT_APP_BASE_URL_API}/api/get`).then((res) => {console.log(res) })        
     }
     
 
