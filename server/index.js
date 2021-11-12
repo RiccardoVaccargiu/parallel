@@ -1,11 +1,10 @@
-const db = require('./db_connect')
 const express = require('express')
 const cors = require('cors')
-const mysql = require('mysql')
+require('dotenv').config({path: '../.env'}) // dotenv: i need to define a path in order to make .env accessible from server
 const jobRoutes = require('./api/job')
 
 const app = express()
-const port = 5000
+const port = process.env.ELECTRON_SERVER_PORT
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())

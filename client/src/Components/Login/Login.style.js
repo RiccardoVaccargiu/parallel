@@ -20,6 +20,11 @@ export const loginStyle = makeStyles((theme) => ({
         marginTop: "40px",
         width: "300px"
     },
+    title: {
+        alignSelf: "center",
+        marginTop: "40px",
+        width: "300px"
+    },
     button: {
         width: "300px",
         height: "50px",

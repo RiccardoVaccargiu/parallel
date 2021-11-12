@@ -10,13 +10,10 @@ export const isWebsocketServerOpen = () => {
 }
 
 export const sendJob = (type, msg) => {
-
+    
     client.send(JSON.stringify({
         type: type ? type : "message",
-        msg: msg ? msg : "default message"
+        msg: msg ? msg : "default message",
     }))
-    client.onmessage = (message) => {
-        const dataFromServer = JSON.parse(message.data)
-        console.log("get reply! ", dataFromServer)
-    }
+    console.log("msg sent!")
 }

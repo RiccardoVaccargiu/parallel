@@ -18,7 +18,11 @@ Real-Time jobs scheduler (for craft businesses)
 
 ## start client (electron app)
 
--npm start
+- npm start
+
+## export react build and electron dist
+
+- npm run build
 
 ### project structure
 

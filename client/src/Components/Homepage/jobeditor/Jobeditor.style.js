@@ -4,7 +4,8 @@ export const jobeditorStyle = makeStyles((theme) => ({
 
     mainBox: {
         minHeight: "100vh",
-        minWidth: "500px",
+        maxWidth: "20%",
+        minWidth: "20%",
         display: "flex",
         flexDirection: "column",
     },

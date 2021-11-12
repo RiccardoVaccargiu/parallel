@@ -2,7 +2,8 @@ import { Box, Button, TextField } from '@material-ui/core'
 import React, {  useState } from 'react'
 import axios from 'axios';
 import { jobeditorStyle } from './Jobeditor.style'
-import {  sendJob } from '../../../../utils/webSocketFunctions';
+import {  client, sendJob, sendJob2 } from '../../../utils/webSocketFunctions';
+import {ELECTRON_BASE_URL_API} from '../../../global'
 
 const useStyles = jobeditorStyle
 
@@ -12,6 +13,7 @@ function Jobeditor(){
     const [job, setJob] = useState("")
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
+    const [jobs, setJobs] = useState([])
 
     const catchTitleInput = (e) => {
         setTitle(e.target.value)
@@ -28,7 +30,7 @@ function Jobeditor(){
         })
         sendJob("job", job)
         
-        axios.get(`${process.env.REACT_APP_BASE_URL_API}/api/get`).then((res) => {console.log(res) })        
+        axios.post(`${ELECTRON_BASE_URL_API}/api/create`, {title, description}).then(() => {console.log('job added!') })
     }
     
 
@@ -42,6 +44,7 @@ function Jobeditor(){
                 <Button className={classes.saveButton} variant="contained" size="large" onClick={() => saveJob()}>Salva</Button>
             </Box>
         </Box>
+        
     )
 }
 
